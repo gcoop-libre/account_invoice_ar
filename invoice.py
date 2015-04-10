@@ -512,6 +512,7 @@ class Invoice:
             domicilio_cliente = ""
         if self.invoice_address.country:
             # map ISO country code to AFIP destination country code:
+            # https://code.google.com/p/pyafipws/wiki/WSFEX#Destination_Country_%28Pais_Destino%29
             pais_dst_cmp = {
                 'ar': 200, 'bo': 202, 'br': 203, 'ca': 204, 'co': 205,
                 'cu': 207, 'cl': 208, 'ec': 210, 'us': 212, 'mx': 218,
@@ -519,7 +520,7 @@ class Invoice:
                 'tw': 313, 'in': 315, 'il': 319, 'jp': 320, 'at': 405,
                 'be': 406, 'dk': 409, 'es': 410, 'fr': 412, 'gr': 413,
                 'it': 417, 'nl': 423, 'pt': 620, 'uk': 426, 'sz': 430,
-                'de': 438, 'ru': 444, 'eu': 497, 'cr': '206'
+                'de': 438, 'ru': 444, 'eu': 497, 'cr': '206', 'py': 221
                 }[self.invoice_address.country.code.lower()]
 
 
